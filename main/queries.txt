@@ -1,0 +1,3 @@
+SELECT * FROM inventories;
+SELECT * FROM locations;
+SELECT * FROM players;
