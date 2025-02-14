@@ -73,15 +73,6 @@ func main() {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
 	defer conn.Close()
-	/*
-		err = generateTestFile(conn,
-			"C://Users//bobby//OneDrive//Desktop//NEST//lol//main//queries.txt",
-			"C://Users//bobby//OneDrive//Desktop//NEST//lol//main//queries_updated.yaml",
-		)
-		if err != nil {
-			log.Fatalf("Failed to generate test file: %v", err)
-		}
-	*/
 
 	db, err := sqlx.Connect("mysql", "trump:skibidigronk@tcp(localhost:5010)/minecraft?parseTime=true")
 	if err != nil {
@@ -89,7 +80,7 @@ func main() {
 	}
 	defer db.Close()
 
-	matches, err := compareResults(db, "queries_updated.yaml")
+	matches, err := compareResults(db, "C://Users//bobby//OneDrive//Desktop//NEST//lol//service_queries//mysqlfiles//queriesold.yaml")
 	if err != nil {
 		log.Fatal(err)
 	}
