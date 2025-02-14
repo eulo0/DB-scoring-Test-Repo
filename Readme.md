@@ -4,20 +4,16 @@
     queries: holds files used by a service for scoring
     tools: generates files for "queries" directory given 2 sql files: "users.sql" and "schema&seed.sql"
 
-# SETUP
+# LIMITATIONS
 
-
-
-# TOOLS GUIDE
-
-If cloned from the repo, there is no need to use tools. however if you want to test out tools, delete all files stored in queries and then do the following: 
-
+At the moment, the code is only used for testing reads. Testing write operations is being worked on
 
 # Build Process (starting from root directory):
 cd dbfiles
 docker build -t minecraft .
 
-cd ../tools
-go run sqlQuery_generate.go
-
+# For testing if read matches expected values does score...
 cd ../main
+go run .
+
+# For testing scoring mismatches, just edit any value in trump.yaml

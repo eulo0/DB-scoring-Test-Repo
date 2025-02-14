@@ -37,16 +37,12 @@ func main() {
 	// Use the helper function to resolve paths
 	sqlFilePath := resolveRelativePath("../../dbfiles/users.sql")
 	userQueriesFilePath := resolveRelativePath("../../user_queries/sample.txt")
-	creds_serviceQueriesFilePath := resolveRelativePath("../../service_queries/mysqlfiles/users.txt")
-	queries_serviceQueriesFilePath := resolveRelativePath("../../service_queries/mysqlfiles/queries.yaml")
+	creds_serviceQueriesFilePath := resolveRelativePath("../../service_queries/sqlfiles/users.txt")
+	queries_serviceQueriesFilePath := resolveRelativePath("../../service_queries/sqlfiles/queries.yaml")
+
 	// Call functions with discovered file paths
 	tools.ExtractUsersPasswords(sqlFilePath, creds_serviceQueriesFilePath)
 	err := tools.GenerateTestFile(userQueriesFilePath, queries_serviceQueriesFilePath)
-	// Assuming generateTestFile needs a database connection and query file
-	//err := generateTestFile(nil, queriesFilePath, resolveRelativePath("queries.yaml"))
-	//if err != nil {
-	//	fmt.Println("Error generating test file:", err)
-	//}
 	if err != nil {
 		fmt.Printf("Error generating test file: %v\n", err)
 	}
